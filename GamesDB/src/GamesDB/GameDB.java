@@ -5,6 +5,8 @@ import vista.VistaApp;
 
 public class GameDB {
 	
+//Lanzador
+	
 	private static VistaApp v;
 
 	public static void main(String[] args) {
