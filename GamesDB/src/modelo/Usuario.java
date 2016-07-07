@@ -43,7 +43,7 @@ public class Usuario {
 		
 		public ArrayList<String> loadpass(){
 			ConexionMySql conexion = ConexionMySql.getInstance();
-			ResultSet r = conexion.query("select * FROM usuario where password = 'supadre'");
+			ResultSet r = conexion.query("select * FROM usuario");
 			
 			passwordUsuario = new ArrayList<String>();
 			try{
@@ -60,7 +60,7 @@ public class Usuario {
 		
 			public ArrayList<String> loadEquipo(){
 				ConexionMySql conexion = ConexionMySql.getInstance();
-				ResultSet r = conexion.query("select * FROM usuario where equipo = 'Real Madrid'");
+				ResultSet r = conexion.query("select * FROM usuario");
 				
 				equipoFavorito = new ArrayList<String>();
 				try{
