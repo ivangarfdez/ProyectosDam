@@ -21,7 +21,7 @@ public class ConexionMySql {
 	public ConexionMySql(){
 		try{
 			Class.forName(CONTROLADOR_MYSQL).newInstance();
-			System.out.println("CONTROLADOR CARGADO CON �XITO");
+			System.out.println("CONTROLADOR CARGADO CON EXITO");
 		}
 		catch(Exception errorCargaControlador){
 			errorCargaControlador.printStackTrace();
@@ -30,7 +30,7 @@ public class ConexionMySql {
 		
 		try{
 			conexion = DriverManager.getConnection("jdbc:mysql://"+host+"/"+bbdd+"?"+"user="+user+"&password="+password);
-			System.out.println("CONEXION REALIZADA CON �XITO");
+			System.out.println("CONEXION REALIZADA CON EXITO");
 		}
 		catch(SQLException errorConexion){
 			errorConexion.printStackTrace();

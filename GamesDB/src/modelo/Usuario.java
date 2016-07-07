@@ -11,6 +11,10 @@ public class Usuario {
 	private String password;
 	private String nombre;
 	private ArrayList<String> nombresUsuario;
+	private ArrayList<String> passwordUsuario;
+	private ArrayList<String> equipoFavorito;
+
+	
 	
 	public Usuario() {
 		// TODO Auto-generated constructor stub
@@ -32,6 +36,44 @@ public class Usuario {
 			errorCargaDatos.printStackTrace();
 			return nombresUsuario;
 		}
+		
+		
+	}
+		
+		
+		public ArrayList<String> loadpass(){
+			ConexionMySql conexion = ConexionMySql.getInstance();
+			ResultSet r = conexion.query("select * FROM usuario where password = 'supadre'");
+			
+			passwordUsuario = new ArrayList<String>();
+			try{
+				while(r.next()){
+					passwordUsuario.add(r.getString("password"));
+				}
+				return passwordUsuario;
+			}
+			catch(SQLException errorCargaDatos){
+				errorCargaDatos.printStackTrace();
+				return passwordUsuario;
+			}}
+		
+		
+			public ArrayList<String> loadEquipo(){
+				ConexionMySql conexion = ConexionMySql.getInstance();
+				ResultSet r = conexion.query("select * FROM usuario where equipo = 'Real Madrid'");
+				
+				equipoFavorito = new ArrayList<String>();
+				try{
+					while(r.next()){
+						equipoFavorito.add(r.getString("equipo"));
+					}
+					return equipoFavorito;
+				}
+				catch(SQLException errorCargaDatos){
+					errorCargaDatos.printStackTrace();
+					return equipoFavorito;
+				}
+			
 		
 	}
 	

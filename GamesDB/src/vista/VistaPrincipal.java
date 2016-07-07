@@ -18,6 +18,8 @@ import modelo.Usuario;
 public class VistaPrincipal extends JPanel {
 	private JPasswordField passwordField;
 	private ArrayList<String> nombresUsuario;
+	private ArrayList<String> passwordUsuario;
+	private ArrayList<String> equipoFavorito;
 	private Usuario modeloU;
 
 	/**
@@ -27,6 +29,10 @@ public class VistaPrincipal extends JPanel {
 		modeloU = new Usuario();
 		nombresUsuario = new ArrayList<String>();
 		nombresUsuario = modeloU.load();
+		passwordUsuario = new ArrayList<String>();
+		passwordUsuario = modeloU.loadpass();
+		equipoFavorito = new ArrayList<String>();
+		equipoFavorito = modeloU.loadEquipo();
 		setBounds(0, 0, 400, 400);
 		setLayout(null);
 		
@@ -50,6 +56,11 @@ public class VistaPrincipal extends JPanel {
 		lblPass.setBounds(10, 259, 80, 22);
 		add(lblPass);
 		
+		JLabel label = new JLabel("Equipo");
+		label.setBounds(234, 210, 62, 22);
+		add(label);
+		
+		
 		JButton btnNewButton_2 = new JButton("Registrate");
 		btnNewButton_2.setBounds(10, 322, 117, 29);
 		add(btnNewButton_2);
@@ -70,8 +81,19 @@ public class VistaPrincipal extends JPanel {
 		}
 		add(comboBox);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(10, 279, 169, 28);
-		add(passwordField);
+		JComboBox combo = new JComboBox();
+		combo.setBounds(10, 279, 169, 28);
+		for(int i = 0; i<passwordUsuario.size();i++){
+			combo.addItem(passwordUsuario.get(i));
+		}
+		add(combo);
+	
+		
+		JComboBox comboEquipo = new JComboBox();
+		comboEquipo.setBounds(191, 230, 173, 27);
+		for(int i = 0; i<equipoFavorito.size();i++){
+			comboEquipo.addItem(equipoFavorito.get(i));
+		}
+		add(comboEquipo);
 	}
 }

@@ -14,6 +14,7 @@ public class GameDB {
 	
 		v = new VistaApp();
 		v.setVisible(true);
+		
 	}
 
 }
